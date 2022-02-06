@@ -1,0 +1,5 @@
+# Hide the directory that contains the vitual environment
+venv/
+
+# MacOS files
+.DS_Store
