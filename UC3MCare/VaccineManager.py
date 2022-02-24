@@ -13,7 +13,7 @@ class VaccineManager:
     """
     class that includes the methods ValidateGUID and ReadaccessrequestfromJSON
     """
-    def init(self):
+    def Init(self):
         pass
 
     @staticmethod
@@ -32,7 +32,8 @@ class VaccineManager:
         except ValueError as e:
             raise VaccineManagementException("Id received is not a UUID") from e
         return True
-def ReadaccessrequestfromJSON(self, fi):
+
+    def ReadaccessrequestfromJSON(self, fi):
         """
         Method that raises an error if the entered file is incorrect
         or if the JSON format is wrong
