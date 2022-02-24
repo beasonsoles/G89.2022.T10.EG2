@@ -1,44 +1,57 @@
+"""
+Module that manages the vaccines to be administered to different clients
+"""
 import json
+import re
 import uuid
-from .VaccineMangementException import VaccineManagementException
-from .VaccineRequest import VaccineRequest
+
+from UC3MCare.VaccineMangementException import VaccineManagementException
+from UC3MCare.VaccineRequest import VaccineRequest
+
 
 class VaccineManager:
-    def __init__(self):
+    """
+    class that includes the methods ValidateGUID and ReadaccessrequestfromJSON
+    """
+    def init(self):
         pass
 
     @staticmethod
-    def ValidateGUID(self, GUID):
+    def ValidateGUID(guid):
+        """
+        Method that receives a GUID and raises an error if it is invalid
+        """
         try:
-            myUUID = uuid.UUID(GUID)
-            import re
-            myregex = re.compile(r'^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB]{3}-'
-                                 r'[0-9A-F]{12}$'
-                                 , re.IGNORECASE)
-            x = myregex.fullmatch(GUID)
+            uuid.UUID(guid)
+            myregex = re.compile(r'^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-'
+                                 r'[89AB][0-9A-F]{3}-[0-9A-F]{12}$',
+                                 re.IGNORECASE)
+            x = myregex.fullmatch(guid)
             if not x:
                 raise VaccineManagementException("Invalid UUID v4 format")
-        except ValueError:
-            raise VaccineManagementException("Id received is not an UUID")
+        except ValueError as e:
+            raise VaccineManagementException("Id received is not a UUID") from e
         return True
-
-    def ReadaccessrequestfromJSON(self, fi):
-
+def ReadaccessrequestfromJSON(self, fi):
+        """
+        Method that raises an error if the entered file is incorrect
+        or if the JSON format is wrong
+        """
         try:
-            with open(fi) as f:
-                DATA = json.load(f)
+            with open(fi, encoding="utf-8") as f:
+                data = json.load(f)
         except FileNotFoundError as e:
             raise VaccineManagementException("Wrong file or file path") from e
         except json.JSONDecodeError as e:
-            raise VaccineManagementException("JSON Decode Error - Wrong JSON Format") from e
-
-
+            raise VaccineManagementException("JSON Decode Error - "
+                                             "Wrong JSON Format") from e
         try:
-            Guid = DATA["id"]
-            Zip = DATA["phoneNumber"]
+            Guid = data["id"]
+            Zip = data["phoneNumber"]
             req = VaccineRequest(Guid, Zip)
         except KeyError as e:
-            raise VaccineManagementException("JSON Decode Error - Invalid JSON Key") from e
+            raise VaccineManagementException("JSON Decode Error - "
+                                             "Invalid JSON Key") from e
         if not self.ValidateGUID(Guid):
             raise VaccineManagementException("Invalid GUID")
 
