@@ -175,6 +175,7 @@ score=yes
 [REFACTORING]
 
 # Maximum number of nested blocks for function / method body
+## Rule changed in the coding standard
 max-nested-blocks=5
 
 # Complete name of functions that never returns. When checking for
@@ -187,18 +188,20 @@ never-returning-functions=sys.exit
 [BASIC]
 
 # Naming style matching correct argument names.
-argument-naming-style=camelCase
+## Rule changed in the coding standard
+argument-naming-style=any
 
 # Regular expression matching correct argument names. Overrides argument-
 # naming-style.
-argument-rgx=[byExample][a-zA-Z0-9]{1, 15}$
+argument-rgx=
 
 # Naming style matching correct attribute names.
-attr-naming-style=camelCase
+## Rule changed in the coding standard
+attr-naming-style=any
 
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style.
-#attr-rgx=[byExample][a-zA-Z0-9]{1, 15}$
+#attr-rgx=
 
 # Bad variable names which should always be refused, separated by a comma.
 bad-names=foo,
@@ -210,40 +213,46 @@ bad-names=foo,
 
 # Bad variable names regexes, separated by a comma. If names match any regex,
 # they will always be refused
-bad-names-rgxs=!([ByExample][a-zA-Z0-9]{1, 15}$,
-                [byExample][a-zA-Z0-9]{1, 15}$,
-                [BYEXAMPLE][A-Z0-9]{1, 15}$)
+bad-names-rgxs=
 
 # Naming style matching correct class attribute names.
-class-attribute-naming-style=camelCase
+## Rule changed in the coding standard
+class-attribute-naming-style=any
 
 # Regular expression matching correct class attribute names. Overrides class-
 # attribute-naming-style.
-#class-attribute-rgx=[byExample][a-zA-Z0-9]{1, 15}$
+#class-attribute-rgx=
 
 # Naming style matching correct class names.
+## Rule changed in the coding standard
 class-naming-style=PascalCase
 
 # Regular expression matching correct class names. Overrides class-naming-
 # style.
+## Rule changed in the coding standard
 #class-rgx=[byExample][a-zA-Z0-9]{1, 15}$
 
 # Naming style matching correct constant names.
+## Rule changed in the coding standard
 const-naming-style=UPPER_CASE
 
 # Regular expression matching correct constant names. Overrides const-naming-
 # style.
+## Rule changed in the coding standard
 #const-rgx=[BYEXAMPLE][A-Z0-9]{1, 15}$
 
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
+## Rule changed in the coding standard
 docstring-min-length=6
 
 # Naming style matching correct function names.
+## Rule changed in the coding standard
 function-naming-style=PascalCase
 
 # Regular expression matching correct function names. Overrides function-
 # naming-style.
+## Rule changed in the coding standard
 #function-rgx=[ByExample][a-zA-Z0-9]{1, 15}$
 
 # Good variable names which should always be accepted, separated by a comma.
@@ -256,6 +265,7 @@ good-names=i,
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
+## Rule changed in the coding standard
 good-names-rgxs=[ByExample][a-zA-Z0-9]{1, 15}$,
                 [byExample][a-zA-Z0-9]{1, 15}$,
                 [BYEXAMPLE][A-Z0-9]{1, 15}$
@@ -264,25 +274,31 @@ good-names-rgxs=[ByExample][a-zA-Z0-9]{1, 15}$,
 include-naming-hint=yes
 
 # Naming style matching correct inline iteration names.
+## Rule changed in the coding standard
 inlinevar-naming-style=camelCase
 
 # Regular expression matching correct inline iteration names. Overrides
 # inlinevar-naming-style.
+## Rule changed in the coding standard
 #inlinevar-rgx=[byExample][a-zA-Z0-9]{1, 15}$
 
 # Naming style matching correct method names.
+## Rule changed in the coding standard
 method-naming-style=PascalCase
 
 # Regular expression matching correct method names. Overrides method-naming-
 # style.
+## Rule changed in the coding standard
 #method-rgx=[ByExample][a-zA-Z0-9]{1, 15}$
 
 # Naming style matching correct module names.
-module-naming-style=camelCase
+## Rule changed in the coding standard
+module-naming-style=PascalCase
 
 # Regular expression matching correct module names. Overrides module-naming-
 # style.
-#module-rgx=[byExample][a-zA-Z0-9]{1, 15}$
+## Rule changed in the coding standard
+#module-rgx=[ByExample][a-zA-Z0-9]{1, 15}$
 
 # Colon-delimited sets of names that determine each other's naming style when
 # the name regexes allow several styles.
@@ -298,11 +314,12 @@ no-docstring-rgx=^_
 property-classes=abc.abstractproperty
 
 # Naming style matching correct variable names.
-variable-naming-style=camelCase
+## Rule changed in the coding standard
+variable-naming-style=any
 
 # Regular expression matching correct variable names. Overrides variable-
 # naming-style.
-#variable-rgx=[byExample][a-zA-Z0-9]{1, 15}$
+#variable-rgx=
 
 
 [FORMAT]
@@ -321,9 +338,11 @@ indent-after-paren=4
 indent-string='    '
 
 # Maximum number of characters on a single line.
+## Rule changed in the coding standard
 max-line-length=80
 
 # Maximum number of lines in a module.
+## Rule changed in the coding standard
 max-module-lines=800
 
 # Allow the body of a class to be on the same line as the declaration if body
@@ -396,7 +415,7 @@ spelling-store-unknown-words=no
 
 # This flag controls whether inconsistent-quotes generates a warning when the
 # character used as a quote delimiter is used inconsistently within a module.
-check-quote-consistency=yes
+check-quote-consistency=no
 
 # This flag controls whether the implicit-str-concat should generate a warning
 # on implicit string concatenation in sequences defined over several lines.
@@ -514,33 +533,43 @@ valid-metaclass-classmethod-first-arg=cls
 [DESIGN]
 
 # Maximum number of arguments for function / method.
+## Rule changed in the coding standard
 max-args=5
 
 # Maximum number of attributes for a class (see R0902).
+## Rule changed in the coding standard
 max-attributes=8
 
 # Maximum number of boolean expressions in an if statement (see R0916).
+## Rule changed in the coding standard
 max-bool-expr=4
 
 # Maximum number of branch for function / method body.
+## Rule changed in the coding standard
 max-branches=12
 
 # Maximum number of locals for function / method body.
+## Rule changed in the coding standard
 max-locals=15
 
 # Maximum number of parents for a class (see R0901).
+## Rule changed in the coding standard
 max-parents=8
 
 # Maximum number of public methods for a class (see R0904).
+## Rule changed in the coding standard
 max-public-methods=20
 
 # Maximum number of return / yield for function / method body.
+## Rule changed in the coding standard
 max-returns=6
 
 # Maximum number of statements in function / method body.
+## Rule changed in the coding standard
 max-statements=50
 
 # Minimum number of public methods for a class (see R0903).
+## Rule changed in the coding standard
 min-public-methods=2
 
 
